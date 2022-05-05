@@ -1,2 +1,2 @@
 # SDCTF
-San Diego CTF
+San Diego CTF Writeups
