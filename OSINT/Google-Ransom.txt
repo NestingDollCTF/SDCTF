@@ -1,0 +1,8 @@
+Google Ransom
+By viewing the google docs page signed in I was able to favorite the page.
+Went to google drive and clicked more details
+You can view who created the file and their email
+Sent an email to “Return the flag” 
+Within 2 minutes got response from email with flag
+
+Challenge writeup by: https://www.linkedin.com/in/anthony-picarello/
