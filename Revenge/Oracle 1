@@ -1,0 +1,39 @@
+Oracle
+The provided Oracle.class file once decompiled can be used write the reverse of what the class file does. No bruteforcing is needed. The bytes against what the input is checked can be used to generate the flag.
+Nim script to generate the flag:
+
+var check: array[42, int8] = [48'i8, 6'i8, 122'i8, -86'i8, -73'i8, -59'i8, 78'i8, 84'i8, 105'i8, -119'i8, -36'i8, -118'i8, 70'i8, 17'i8, 101'i8, -85'i8, 55'i8, -38'i8, -91'i8, 32'i8, -18'i8, -107'i8, 53'i8, 99'i8, -74'i8, 67'i8, 89'i8, 120'i8, -41i8, 122'i8, -100'i8, -70'i8, 34'i8, -111'i8, 21'i8, -128'i8, 78'i8, 27'i8, 123'i8, -103'i8, 36'i8, 87'i8] 
+var numbers: array[42, uint8]
+var i = 0'u8
+while i < 42:
+    numbers[i] = cast[uint8](check[i]) 
+    i += 1
+
+i = 41
+while i < 42:
+    numbers[i] -= i mod 2
+    numbers[i] -= 127
+    numbers[i] -= 31*i
+    numbers[i] -= 7*i*i
+    i-=1
+
+proc doLast(numbers: array[uint8]): array[uint8] =
+    var newnumbers: array[42, uint8]
+    i = 41
+    while i < 42:
+        newnumbers[i] = numbers[i] xor ((3*i*i) + 5*i + 101 + i mod 2)
+        i-=1
+    return newnumbers
+
+i = 41
+var tempnumbers: array[42, uint8] 
+while i < 42:
+    tempnumbers[(i+42-1) mod 42] = tempnumbers[(i+42-1) mod 42] or (numbers[i] shr 4) 
+    tempnumbers[i] = tempnumbers[i] or ((numbers[i] and 0b1111) shl 4)
+    i-=1
+numbers = doLast(tempnumbers)
+echo numbers
+# convert to ascii
+# sdctf{u_f0und_th3_LANGu4ge_0f_th1s_0r4cl3} 
+
+Writeup by Ergo#7487 on discord.
