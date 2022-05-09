@@ -1,0 +1,11 @@
+printFAILED
+https://github.com/acmucsd/sdctf-2021/tree/main/pwn/printFailed
+download printFailed executable
+open with ghidra or similar tool
+find that program uses printf (a lot of vulns associated with it)
+Connect via nc
+Type:     %4$s       which gets the fourth argument (the flag)
+You can confirm this is the flag by reconnecting and pasting in the argument to see that the program says “nice guess!”
+Base64 decode to get flag
+
+Challenge writeup by: https://www.linkedin.com/in/anthony-picarello/
