@@ -1,0 +1,12 @@
+Turing Test
+Go to website
+Enter in provided email: jack.sdctf@gmail.com
+You can enter a random password around 4 times until virtual assistant window pops up for password reset
+It will ask a few questions like full name, birthday & month, and dogs name
+All info can be gotten from Jack’s FB page by searching his email on FB
+Page has full name, and birthday & month
+Dogs name is on Instagram account linked to his FB account
+Once checks are passed it will give you base64 of flag
+Base64 decode to get flag
+
+Challenge writeup by: https://www.linkedin.com/in/anthony-picarello/
